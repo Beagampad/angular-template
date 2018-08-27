@@ -2,14 +2,14 @@
   <mat-list>
     <mat-list-item *ngFor="let ruta of rutas">
         <a routerLink="/detail/{{ruta.id}}">
-          <span>{{ruta.hora}}</span> 
+          <span>{{ruta.nombre}}</span>
         </a>
       <img matListAvatar src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="prueba">
-      <h3 matLine> {{ruta.usuaria}} </h3>
+      <h3 matLine> {{ruta.apellidos}} </h3>
       <p matLine>
-        <span> {{ruta.origen}} </span>
-        <span class="demo-2"> -- {{ruta.destino}} </span>
-        <span> {{ruta.medio}} </span>
+        <span> {{ruta.intereses}} </span>
+        <span class="demo-2"> -- {{ruta.email}} </span>
+        <span> {{ruta.email}} </span>
       </p>
     </mat-list-item>
   </mat-list>

@@ -31,8 +31,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatProgressSpinnerModule,
     HttpClientModule
-    
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

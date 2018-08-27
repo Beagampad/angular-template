@@ -8,8 +8,8 @@ import { NotaloneService } from 'src/app/notalone.service';
 })
 export class RutaComponent implements OnInit {
 
-  rutas : IUsuaria[];
-  titulo  : string = 'Bienvenidos';
+  rutas: IRuta[] = [];
+  titulo: string = 'Bienvenidos';
 
   constructor(private notaloneService: NotaloneService) { }
 
@@ -17,29 +17,26 @@ export class RutaComponent implements OnInit {
     this.getRutas();
   }
 
-  /*getRutas(): void {
-    this.rutas = this.notaloneService.getRutas();
-  }*/
-
   getRutas(): void {
     this.notaloneService.getRutas()
         .subscribe(rutas => this.rutas = rutas);
   }
 }
 
-interface IRuta{
-  id : number;
-  usuaria : string;
+
+interface IRuta2 {
+  id: number;
+  usuaria: string;
   hora ?: string;
   origen: string;
   destino: string;
   medio: string;
 }
 
-interface IUsuaria{
-  id : number;
-  nombre : string;
-  apellidos : string;
+interface IRuta {
+  id: number;
+  nombre: string;
+  apellidos: string;
   fechanacimiento: string;
   intereses: string;
   foto ?: string;

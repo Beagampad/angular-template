@@ -1,20 +1,22 @@
-<div class="container">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ruta.usuaria}}</mat-card-title>
-      <mat-card-subtitle>{{ruta.hora}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-          <span> {{ruta.origen}} </span>
-          <span class="demo-2"> -- {{ruta.destino}} </span>
-          <span> {{ruta.medio}} </span>
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>UNIRME</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+
+  <div class="container">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ruta[0].nombre}}</mat-card-title>
+        <mat-card-subtitle>{{ruta[0].email}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="http://localhost:3000/{{ruta[0].foto}}" alt="Foto Usuaria">
+      <mat-card-content>
+        <p>
+            <span> {{ruta[0].apellidos}} </span>
+            <span class="demo-2"> -- {{ruta[0].destino}} </span>
+            <span> {{ruta[0].intereses}} </span>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>UNIRME</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
