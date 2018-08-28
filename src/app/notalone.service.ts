@@ -41,18 +41,17 @@ private handleError<T> (operation = 'operation', result?: T) {
   }
 
   /** GET Ruta by id */
-  getRuta(id: number): Observable<any> {
-  const url = `${this.rutasUrl}/notalone/rutadetalle?id=${id}`;
-  console.log(url);
-  return this.http.get<any>(url).pipe(
-    catchError(this.handleError<IRuta>(`getRuta id=${id}`))
+getRuta(id: number): Observable<IRuta> {
+  const url = `${this.rutasUrl}/${id}`;
+  return this.http.get<IRuta>(url).pipe(
+    catchError(this.handleError<IRuta>(`getHero id=${id}`))
     );
   }
 }
 
-interface IRuta {
-  idruta: number;
-  idusuaria: number;
+interface IRuta{
+  id : number;
+  usuaria : string;
   hora ?: string;
   origen: string;
   destino: string;
@@ -61,16 +60,29 @@ interface IRuta {
   comentarios: string;
 }
 
+interface IUsuaria{
+  id : number;
+  nombre : string;
+  apellidos : string;
+  fechanacimiento: string;
+  intereses: string;
+  foto ?: string;
+  email: string;
+  password1?: string;
+  repetirpass?: string;
+  nombreusuaria?: string;
+  idinvitador?: string;
+  numinvitaciones?: string;
+}
 
+const RUTAS: IRuta[] = [{
 
-/*const RUTAS: IRuta3[] = [{
-
-  id: 1,
-  usuaria: "Usuaria1",
-  hora: "02:00h",
-  origen: "Centro",
-  destino: "el Palo",
-  medio: "taxi"
+  id:1,
+  usuaria:"Usuaria1",
+  hora:"02:00h",
+  origen:"Centro",
+  destino:"el Palo",
+  medio:"taxi"
  }, {
    id: 2,
    usuaria: "Usuaria2",

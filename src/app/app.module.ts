@@ -31,6 +31,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatListModule,
     AppRoutingModule,
     MatCardModule,
+    MatProgressSpinnerModule,
+    HttpClientModule
     HttpClientModule,
     MatSidenavModule,
     MatButtonModule

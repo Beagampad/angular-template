@@ -34,3 +34,18 @@ interface IRuta {
   coordenadas: string;
   comentarios: string;
 }
+
+interface IUsuaria{
+  id : number;
+  nombre : string;
+  apellidos : string;
+  fechanacimiento: string;
+  intereses: string;
+  foto ?: string;
+  email: string;
+  password1?: string;
+  repetirpass?: string;
+  nombreusuaria?: string;
+  idinvitador?: string;
+  numinvitaciones?: string;
+}
