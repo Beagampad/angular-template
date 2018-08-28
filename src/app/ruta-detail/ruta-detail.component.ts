@@ -11,6 +11,8 @@ import { NotaloneService } from 'src/app/notalone.service';
 })
 export class RutaDetailComponent implements OnInit {
 
+  ruta: IRuta[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private location: Location,
@@ -20,21 +22,29 @@ export class RutaDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getRuta();
   }
-  
+
   getRuta(): void {
-    let id = +this.route.snapshot.paramMap.get('id');
-    /*this.notaloneService.getRutas(id)
-      .subscribe(ruta => this.ruta = ruta);*/
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    this.notaloneService.getRuta(id)
+      .subscribe(ruta => this.ruta = ruta);
   }
 
 }
 
-interface IRuta{
-  id : number;
-  usuaria : string;
-  hora ?: string;
-  origen: string;
-  destino: string;
-  medio: string;
+interface IRuta {
+  id: number;
+  nombre: string;
+  apellidos: string;
+  fechanacimiento: string;
+  intereses: string;
+  foto ?: string;
+  email: string;
+  password1?: string;
+  repetirpass?: string;
+  nombreusuaria?: string;
+  idinvitador?: string;
+  numinvitaciones?: string;
 }
+
 

@@ -8,9 +8,10 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class NotaloneService {
 
-  constructor(private http: HttpClient,
-              private rutasUrl = 'http://localhost:3000/notalone')  { }// URL to web API de mi backend
+  rutasUrl = 'http://localhost:3000'; // URL to web API de mi backend
 
+
+  constructor(private http: HttpClient)  { }
   /**
  * Handle Http operation that failed.
  * Let the app continue.
@@ -19,79 +20,72 @@ export class NotaloneService {
  */
 private handleError<T> (operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
- 
+
     // TODO: send the error to remote logging infrastructure
     console.error(error); // log to console instead
- 
+
     // Let the app keep running by returning an empty result.
     return of(result as T);
   };
 }
 
-  getRutas() :Observable<IUsuaria[]> {
-    //return of(RUTAS);
-    return this.http.get<any>(this.rutasUrl)//espera una interfaz de rutas, si no es así poner any
+  getRutas(): Observable<any> {
+    // return of(RUTAS);
+    const url = `${this.rutasUrl}/notalone/rutas`;
+    return this.http.get<any>(url)// espera una interfaz de rutas, si no es así poner any
     .pipe(
-      catchError(this.handleError('getRutas', []))
+      map(data => data),
+
+       catchError(this.handleError('getRutas', []))
     );
   }
 
   /** GET Ruta by id */
-getRuta(id: number): Observable<IRuta> {
-  const url = `${this.rutasUrl}/${id}`;
-  return this.http.get<IRuta>(url).pipe(
-    catchError(this.handleError<IRuta>(`getHero id=${id}`))
+  getRuta(id: number): Observable<any> {
+  const url = `${this.rutasUrl}/notalone/rutadetalle?id=${id}`;
+  console.log(url);
+  return this.http.get<any>(url).pipe(
+    catchError(this.handleError<IRuta>(`getRuta id=${id}`))
     );
   }
 }
 
-interface IRuta{
-  id : number;
-  usuaria : string;
+interface IRuta {
+  idruta: number;
+  idusuaria: number;
   hora ?: string;
   origen: string;
   destino: string;
   medio: string;
+  coordenadas: string;
+  comentarios: string;
 }
 
-interface IUsuaria{
-  id : number;
-  nombre : string;
-  apellidos : string;
-  fechanacimiento: string;
-  intereses: string;
-  foto ?: string;
-  email: string;
-  password1?: string;
-  repetirpass?: string;
-  nombreusuaria?: string;
-  idinvitador?: string;
-  numinvitaciones?: string;
-}
 
-const RUTAS: IRuta[] = [{
 
-  id:1,
-  usuaria:"Usuaria1",
-  hora:"02:00h",
-  origen:"Centro",
-  destino:"el Palo",
-  medio:"taxi"
+/*const RUTAS: IRuta3[] = [{
+
+  id: 1,
+  usuaria: "Usuaria1",
+  hora: "02:00h",
+  origen: "Centro",
+  destino: "el Palo",
+  medio: "taxi"
  }, {
-   id:2,
-   usuaria:"Usuaria2",
-   hora:"00:00h",
-   origen:"Centro",
-   destino:"el Limonar",
-   medio:"bus"
+   id: 2,
+   usuaria: "Usuaria2",
+   hora: "00:00h",
+   origen: "Centro",
+   destino: "el Limonar",
+   medio: "bus"
  }, {
-   id:3,
-   usuaria:"Usuaria3",
-   hora:"04:00h",
-   origen:"Centro",
-   destino:"Teatinos",
-   medio:"taxi"
+   id: 3,
+   usuaria: "Usuaria3",
+   hora: "04:00h",
+   origen: "Centro",
+   destino: "Teatinos",
+   medio: "taxi"
  }
 
-]
+]*/
 

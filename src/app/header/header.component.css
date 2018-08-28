@@ -1,3 +1,22 @@
 #logo{
-    width: 25%;
+    width: 40%;
+}
+.nav-link{
+    margin-right: 50px;
+}
+#menu{
+    margin-left: 29%;
+}
+#loginbtn{
+    margin-left: 40%;
+    background-color: white;
+    border: 1px #3f204e solid;
+}
+#navbar{
+  background-color: #673ab724;
+}
+a{
+    color:#969292;
+    font-weight: bold;
+    font-size: 20px;
 }

@@ -1,20 +1,26 @@
-<div class="container">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ruta.usuaria}}</mat-card-title>
-      <mat-card-subtitle>{{ruta.hora}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-          <span> {{ruta.origen}} </span>
-          <span class="demo-2"> -- {{ruta.destino}} </span>
-          <span> {{ruta.medio}} </span>
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>UNIRME</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <div class="container">
+    <mat-card class="example-card">
+        <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-header>
+        <mat-card-title>Origen: {{ruta[0].origen}}</mat-card-title>
+        <mat-card-title>Destino: {{ruta[0].destino}}</mat-card-title>
+        <mat-card-subtitle>Hora: {{ruta[0].hora}}h</mat-card-subtitle>
+        <mat-card-subtitle>Medio: {{ruta[0].medio}}</mat-card-subtitle>
+        <mat-card-subtitle>Comentarios: {{ruta[0].comentarios}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <p>
+              <span class="demo-2"> Coordenadas:{{ruta[0].coordenadas}} </span>
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>UNIRME AL TRAYECTO</button>
+            <button mat-button>DEJAR COMENTARIO</button>
+          </mat-card-actions>
+      <img mat-card-image src="http://globalmediait-cl.com/wp-content/uploads/2016/05/google-maps.png" alt="Foto Usuaria">
+      
+      
+    </mat-card>
+  </div>
+ 

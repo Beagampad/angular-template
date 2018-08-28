@@ -11,8 +11,10 @@ import { MatListModule} from '@angular/material/list';
 import { AppRoutingModule } from './/app-routing.module';
 import { RutaDetailComponent } from './ruta-detail/ruta-detail.component';
 import { MatCardModule} from '@angular/material/card';
-import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -29,10 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     AppRoutingModule,
     MatCardModule,
-    MatProgressSpinnerModule,
-    HttpClientModule
-    
-    
+    HttpClientModule,
+    MatSidenavModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
