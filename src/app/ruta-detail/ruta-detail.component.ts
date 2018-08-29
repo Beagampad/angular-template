@@ -29,7 +29,6 @@ export class RutaDetailComponent implements OnInit {
     this.notaloneService.getRuta(id)
       .subscribe(ruta => this.ruta = ruta);
   }
-
 }
 
 interface IRuta {

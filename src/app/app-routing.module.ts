@@ -3,11 +3,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { RutaComponent } from 'src/app/ruta/ruta.component';
 import { HomeComponent } from 'src/app/home/home.component';
 import { RutaDetailComponent } from 'src/app/ruta-detail/ruta-detail.component';
+import { LoginComponent } from 'src/app/login/login.component';
+import { NeedAuthGuard } from 'src/app/auth.guard';
 
 const routes: Routes = [
   {path: 'rutas', component: RutaComponent},
   {path: '', component: HomeComponent},
   {path: 'detail/:id', component: RutaDetailComponent},
+
+  {
+    path: 'dashboard',
+    component: HomeComponent,
+    canActivate: [NeedAuthGuard] // <---- connected Route with guard
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
 
 ];
 

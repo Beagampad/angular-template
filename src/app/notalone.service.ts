@@ -41,17 +41,17 @@ private handleError<T> (operation = 'operation', result?: T) {
   }
 
   /** GET Ruta by id */
-getRuta(id: number): Observable<IRuta> {
-  const url = `${this.rutasUrl}/${id}`;
-  return this.http.get<IRuta>(url).pipe(
+getRuta(id: number): Observable<any> {
+  const url = `${this.rutasUrl}/notalone/rutadetalle?id=${id}`;
+  return this.http.get<any>(url).pipe(
     catchError(this.handleError<IRuta>(`getHero id=${id}`))
     );
   }
 }
 
 interface IRuta{
-  id : number;
-  usuaria : string;
+  id: number;
+  usuaria: string;
   hora ?: string;
   origen: string;
   destino: string;
@@ -59,45 +59,3 @@ interface IRuta{
   coordenadas: string;
   comentarios: string;
 }
-
-interface IUsuaria{
-  id : number;
-  nombre : string;
-  apellidos : string;
-  fechanacimiento: string;
-  intereses: string;
-  foto ?: string;
-  email: string;
-  password1?: string;
-  repetirpass?: string;
-  nombreusuaria?: string;
-  idinvitador?: string;
-  numinvitaciones?: string;
-}
-
-const RUTAS: IRuta[] = [{
-
-  id:1,
-  usuaria:"Usuaria1",
-  hora:"02:00h",
-  origen:"Centro",
-  destino:"el Palo",
-  medio:"taxi"
- }, {
-   id: 2,
-   usuaria: "Usuaria2",
-   hora: "00:00h",
-   origen: "Centro",
-   destino: "el Limonar",
-   medio: "bus"
- }, {
-   id: 3,
-   usuaria: "Usuaria3",
-   hora: "04:00h",
-   origen: "Centro",
-   destino: "Teatinos",
-   medio: "taxi"
- }
-
-]*/
-

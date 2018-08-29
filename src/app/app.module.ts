@@ -14,6 +14,9 @@ import { MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import {NeedAuthGuard} from './auth.guard';
 
 
 @NgModule({
@@ -23,7 +26,8 @@ import {MatButtonModule} from '@angular/material/button';
     HomeComponent,
     FooterComponent,
     RutaComponent,
-    RutaDetailComponent
+    RutaDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -31,13 +35,14 @@ import {MatButtonModule} from '@angular/material/button';
     MatListModule,
     AppRoutingModule,
     MatCardModule,
-    MatProgressSpinnerModule,
-    HttpClientModule
     HttpClientModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    NeedAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
