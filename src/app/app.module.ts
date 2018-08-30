@@ -12,11 +12,14 @@ import { AppRoutingModule } from './/app-routing.module';
 import { RutaDetailComponent } from './ruta-detail/ruta-detail.component';
 import { MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import {NeedAuthGuard} from './auth.guard';
+import { NeedAuthGuard} from './auth.guard';
+import { MatMenuModule} from '@angular/material/menu';
+import { MatChipsModule} from '@angular/material/chips';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+
 
 
 @NgModule({
@@ -27,7 +30,8 @@ import {NeedAuthGuard} from './auth.guard';
     FooterComponent,
     RutaComponent,
     RutaDetailComponent,
-    LoginComponent
+    LoginComponent,
+    MyprofileComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +40,10 @@ import {NeedAuthGuard} from './auth.guard';
     AppRoutingModule,
     MatCardModule,
     HttpClientModule,
-    MatSidenavModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule,
+    MatChipsModule
   ],
   providers: [
     NeedAuthGuard

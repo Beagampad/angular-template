@@ -4,33 +4,32 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     <a routerLink=""><img id="logo" src="/src/assets/img/logo-morado.png"></a>
-    
+
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul id="menu" class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li>
-            <a class="nav-link" routerLink="">Home</a>
-          </li>
-          <li>
-            <a class="nav-link" routerLink="/rutas">Rutas</a>
-          </li>
-          <li>
-              <a class="nav-link" routerLink="/rutas">Usuaria1</a>
-            </li>
-         
-        </ul>
-        
-            <button id="loginbtn" type="button" class="btn btn-default navbar-btn">Cerrar Sesión</button>
-        
+
+        <button mat-flat-button routerLink="">Home</button>
+        <button mat-flat-button routerLink="/rutas">Rutas</button>
+
+        <button mat-flat-button [matMenuTriggerFor]="menu">Usuaria</button>
+        <mat-menu #menu="matMenu">
+          <h6 class="dropdown-header">Usuaria</h6>
+          <button mat-menu-item>Mis Rutas</button>
+          <button mat-menu-item routerLink="/profile">Mi Perfil</button>
+        </mat-menu>
+
+        <mat-chip-list>
+            <mat-chip color="accent" selected>LogOut</mat-chip>
+          </mat-chip-list>
       </div>
   </div>
 </nav>
 
-  
 
 
 
 
-  
+
+
 
 
 

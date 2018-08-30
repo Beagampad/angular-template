@@ -8,15 +8,18 @@
     margin-left: 29%;
 }
 #loginbtn{
-    margin-left: 40%;
+    margin-left: 5%;
     background-color: white;
     border: 1px #3f204e solid;
 }
 #navbar{
-  background-color: #673ab724;
+  /* background-color: #673ab724;*/
 }
 a{
     color:#969292;
     font-weight: bold;
     font-size: 20px;
+}
+mat-menu-item{
+  margin-right: 5%;
 }

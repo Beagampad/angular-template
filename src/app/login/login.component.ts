@@ -26,13 +26,16 @@ export class LoginComponent implements OnInit {
     )
       .subscribe(
         r => {
-         // if (r.token) {
-            this.router.navigateByUrl('/dashboard');
-         // }
+          if (r.token) {
+            console.log(r.result);
+            this.api.setToken(r.token);
+            this.router.navigateByUrl('/');
+          }
         },
         r => {
           alert(r.error.error);
         });
   }
+
 }
 

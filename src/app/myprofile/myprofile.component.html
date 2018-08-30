@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="row fondo-detalle">
+        <div class="col-md-8">
+            <div class="page-header">
+                <h1>Detalle de usuaria</h1>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold">Nombre</label>
+                <p class="form-control-static">{{usuaria[0].nombre}}</p>
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold">Apellidos</label>
+                <p class="form-control-static"><%= detalle[0].apellidos%></p>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold">Fecha de nacimiento</label>
+                <p class="form-control-static"><%= detalle[0].fechanacimiento%></p>
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold">Email</label>
+                <p class="form-control-static"><%= detalle[0].email%></p>
+            </div>
+
+            <!--<img src="../img/uploads/img2.jpg">-->
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <img class="foto-user" src="<%= detalle[0].foto%>">
+                <div class="form-group">
+                    <label class="font-weight-bold">Intereses</label>
+                    <p class="form-control-static"><%= detalle[0].intereses%></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <p><a href="/CRUD" class="btn btn-primary volver">Volver</a></p>
+            </div>
+        </div>
+    </div>
+</div>
