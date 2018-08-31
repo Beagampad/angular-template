@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService} from 'src/app/users.service';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+const TOKEN = 'TOKEN';
 
 @Component({
   selector: 'app-myprofile',
@@ -23,7 +26,12 @@ export class MyprofileComponent implements OnInit {
   }
 
   getUser(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+
+    const helper = new JwtHelperService();
+    const token = localStorage.getItem(TOKEN); // recovery Token
+    console.log(token);
+    const decodedToken = helper.decodeToken(token);
+    const id = decodedToken.id;
     console.log(id);
     this.usersService.getUser(id)
       .subscribe(usuaria => this.usuaria = usuaria);

@@ -11,26 +11,26 @@
 
             <div class="form-group">
                 <label class="font-weight-bold">Apellidos</label>
-                <p class="form-control-static"><%= detalle[0].apellidos%></p>
+                <p class="form-control-static">{{usuaria[0].apellidos}}</p>
             </div>
             <div class="form-group">
                 <label class="font-weight-bold">Fecha de nacimiento</label>
-                <p class="form-control-static"><%= detalle[0].fechanacimiento%></p>
+                <p class="form-control-static">{{usuaria[0].fechanacimiento}}</p>
             </div>
 
             <div class="form-group">
                 <label class="font-weight-bold">Email</label>
-                <p class="form-control-static"><%= detalle[0].email%></p>
+                <p class="form-control-static">{{usuaria[0].email}}</p>
             </div>
 
             <!--<img src="../img/uploads/img2.jpg">-->
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <img class="foto-user" src="<%= detalle[0].foto%>">
+                <img class="foto-user" src="http://localhost:3000/{{usuaria[0].foto}}">
                 <div class="form-group">
                     <label class="font-weight-bold">Intereses</label>
-                    <p class="form-control-static"><%= detalle[0].intereses%></p>
+                    <p class="form-control-static">{{usuaria[0].intereses}}</p>
                 </div>
             </div>
         </div>

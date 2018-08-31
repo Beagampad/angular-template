@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NotaloneService } from 'src/app/notalone.service';
+import { UsersService } from '../users.service';
 
 
 @Component({
@@ -12,11 +13,13 @@ import { NotaloneService } from 'src/app/notalone.service';
 export class RutaDetailComponent implements OnInit {
 
   ruta: IRuta[] = [];
+  usuaria: IUser[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private notaloneService: NotaloneService,
+    private usersService: UsersService
   ) { }
 
   ngOnInit(): void {
@@ -27,11 +30,26 @@ export class RutaDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(id);
     this.notaloneService.getRuta(id)
-      .subscribe(ruta => this.ruta = ruta);
+      .subscribe(ruta => {this.ruta = ruta;
+        console.log(ruta);
+        this.usersService.getUser(ruta[0].idusuaria).subscribe(usuaria => this.usuaria = usuaria) ;
+      });
   }
+
 }
 
 interface IRuta {
+  idruta: number;
+  idusuaria: number;
+  hora ?: string;
+  origen: string;
+  destino: string;
+  medio: string;
+  coordenadas: string;
+  comentarios: string;
+}
+
+interface IUser {
   id: number;
   nombre: string;
   apellidos: string;

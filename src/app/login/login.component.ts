@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         r => {
           if (r.token) {
-            console.log(r.result);
+            console.log(r);
             this.api.setToken(r.token);
             this.router.navigateByUrl('/');
           }
