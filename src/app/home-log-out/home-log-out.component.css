@@ -1,0 +1,68 @@
+.cover {
+    padding: 0 1.5rem;
+  }
+  .cover .btn-lg {
+    padding: .75rem 1.25rem;
+    font-weight: 700;
+  }
+  .cover-container {
+    max-width: 42em;
+  }
+  body {
+    height: 100%;
+    /*background-color: #ccc;*/
+  }
+  
+  body {
+    display: -ms-flexbox;
+    display: flex;
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+  }
+  #video_background{
+	position: absolute; 
+	bottom: 0px; 
+	width: 100%; 
+	overflow: hidden;
+}
+#contenedor-inicio{
+	margin: 0 auto;
+	text-align: center;
+	font-family: "Montserrat";
+	color: white;
+	margin-top: 10%;
+	position: relative;
+}
+#transparencia{
+	position: absolute; 
+	bottom: 0px; 
+	width: 100%; 
+	overflow: hidden;
+	height: 100%;
+	background-color: #5F4B8B;
+	opacity: 0.3;
+}
+#logo{
+    width: 500px;
+}  
+.cabecera{
+    font-family: 'Lobster', cursive;
+}
+.dark{
+    background-color: #333
+}
+.titulo{
+    color: #5F4B8B !important;
+    
+}
+.btn-acceso{
+    background-color: #5F4B8B;
+    border-color: #5F4B8B;
+}
+.acceso{
+    margin-top: 50px;
+}
+#logo-acceso{
+    width: 240px;
+    float: right;
+}

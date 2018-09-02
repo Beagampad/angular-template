@@ -19,6 +19,10 @@ import { NeedAuthGuard} from './auth.guard';
 import { MatMenuModule} from '@angular/material/menu';
 import { MatChipsModule} from '@angular/material/chips';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HomeLogOutComponent } from './home-log-out/home-log-out.component';
 
 
 
@@ -31,7 +35,8 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     RutaComponent,
     RutaDetailComponent,
     LoginComponent,
-    MyprofileComponent
+    MyprofileComponent,
+    HomeLogOutComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,10 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     MatButtonModule,
     FormsModule,
     MatMenuModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTooltipModule,
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [
     NeedAuthGuard

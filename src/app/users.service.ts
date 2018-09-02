@@ -71,6 +71,10 @@ private handleError<T> (operation = 'operation', result?: T) {
   isLogged() {
     return localStorage.getItem(TOKEN) != null;
   }
+
+  logout() {
+    localStorage.removeItem(TOKEN);
+}
 }
 
 interface IUser {
@@ -88,8 +92,5 @@ interface IUser {
   numinvitaciones?: string;
 }
 
-interface ILoginResultModel {
-  token: string;
-  error: string;
-}
+
 

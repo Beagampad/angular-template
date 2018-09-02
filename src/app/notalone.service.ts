@@ -3,6 +3,12 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+  })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -44,11 +50,26 @@ private handleError<T> (operation = 'operation', result?: T) {
 getRuta(id: number): Observable<any> {
   const url = `${this.rutasUrl}/notalone/rutadetalle?id=${id}`;
   return this.http.get<any>(url).pipe(
-    catchError(this.handleError<IRuta>(`getHero id=${id}`))
+    catchError(this.handleError<IRuta>(`getRuta id=${id}`))
     );
   }
-}
 
+  /** POST: add a new ruta to the server 
+  createRuta(ruta: IRuta): Observable<IRuta> {
+  return this.http.post<IRuta>(this.rutasUrl, ruta, httpOptions).pipe(
+    catchError(this.handleError<IRuta>('addRuta'))
+  );
+}*/
+createRuta(id: string, origen: string, destino: string, fecha: string, hora: string, medio: string, comentarios: string): Observable<any> {
+  const url = `${this.rutasUrl}/notalone/createruta`; // ruta de mi back para el createruta
+  console.log(id);
+  console.log(origen);
+  return this.http.post<any>( url, {id: id, origen: origen, destino: destino, fecha:fecha, hora: hora, comentarios: comentarios}, httpOptions)
+  .pipe(
+    catchError(this.handleError('createRuta', 'error')));
+  }
+
+}
 interface IRuta{
   id: number;
   usuaria: string;

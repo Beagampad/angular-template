@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-4">
             <mat-card>Fecha y Nº de rutas</mat-card>
-            <mat-card>Crear Ruta</mat-card>
+            <mat-card><button class="btn btn-lg btn-outline-primary" (click)="open(content)">Crear Ruta</button></mat-card>
             <mat-card>Mis Rutas</mat-card>
         </div>
         <div class="col-8">
@@ -25,3 +25,74 @@
         </div>
     </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Publica un trayecto</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+            <form [formGroup]="angForm" novalidate id="formruta" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Punto de partida</label>
+                    <input type="text" class="form-control" id="origen" formControlName="origen" #origen>
+                </div>
+                <div *ngIf="angForm.controls['origen'].invalid && (angForm.controls['origen'].dirty || angForm.controls['origen'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['origen'].errors.required"> El origen es obligatorio</div>
+                </div>
+                <div class="form-group">
+                    <label>Destino</label>
+                    <input type="text" class="form-control" id="destino" formControlName="destino" #destino>
+                </div>
+                <div *ngIf="angForm.controls['destino'].invalid && (angForm.controls['destino'].dirty || angForm.controls['destino'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['destino'].errors.required">El destino es obligatorio</div>
+                </div>
+                <div class="form-group">
+                        <label for="dateOfBirth">Fecha</label>
+                        <div class="input-group">
+                          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp="ngbDatepicker" formControlName="fecha" #fecha>
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                          </div>
+                        </div>
+                      </div>
+                <div *ngIf="angForm.controls['fecha'].invalid && (angForm.controls['fecha'].dirty || angForm.controls['fecha'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['fecha'].errors.required">La fecha es obligatoria</div>
+                </div>
+                <div class="form-group">
+                    <label>Hora Aproximada</label>
+                    <input type="datetime" class="form-control" id="hora" formControlName="hora" #hora>
+                </div>
+                <div *ngIf="angForm.controls['hora'].invalid && (angForm.controls['hora'].dirty || angForm.controls['hora'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['hora'].errors.required">La hora es obligatoria</div>
+                </div>
+                <div class="form-group">
+                    <label>Medio de transporte</label>
+                    <select class="form-control" id="medio" formControlName="medio" #medio>
+                      <option value="Andando">Andando</option>
+                      <option value="Coche">Coche</option>
+                      <option>Moto</option>
+                      <option>Bus</option>
+                      <option>Taxi</option>
+                      <option>Metro</option>
+                    </select>
+                </div>
+                <div *ngIf="angForm.controls['medio'].invalid && (angForm.controls['medio'].dirty || angForm.controls['medio'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['medio'].errors.required">El medio es obligatorio</div>
+                </div>
+                <div class="form-group">
+                <label>Comentarios</label>
+                <textarea class="form-control" rows="5" id="intereses" formControlName="comentarios" #comentarios></textarea>
+                </div>
+                <div *ngIf="angForm.controls['comentarios'].invalid && (angForm.controls['comentarios'].dirty || angForm.controls['comentarios'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['comentarios'].errors.required"> Los comentarios son obligatorios</div>
+                </div>
+            </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="createRuta(48,origen.value, destino.value, fecha.value, hora.value, medio.value, comentarios.value)" [disabled]="angForm.pristine || angForm.invalid">Publicar</button>
+    </div>
+  </ng-template>
+  

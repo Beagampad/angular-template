@@ -6,15 +6,17 @@ import { RutaDetailComponent } from 'src/app/ruta-detail/ruta-detail.component';
 import { LoginComponent } from 'src/app/login/login.component';
 import { NeedAuthGuard } from 'src/app/auth.guard';
 import { MyprofileComponent } from 'src/app/myprofile/myprofile.component';
+import { HomeLogOutComponent } from './home-log-out/home-log-out.component';
 
 const routes: Routes = [
   {path: 'rutas', component: RutaComponent},
-  {path: '', component: HomeComponent},
+ // {path: '', component: HomeComponent},
   {path: 'detail/:id', component: RutaDetailComponent},
   {path: 'profile', component: MyprofileComponent},
+  {path: 'home', component: HomeLogOutComponent},
 
   {
-    path: 'dashboard',
+    path: '',
     component: HomeComponent,
     canActivate: [NeedAuthGuard] // <---- connected Route with guard
   },
