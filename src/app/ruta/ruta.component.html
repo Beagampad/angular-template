@@ -4,12 +4,12 @@
         <div class="col-4">
             <mat-card>Fecha y Nº de rutas</mat-card>
             <mat-card><button class="btn btn-lg btn-outline-primary" (click)="open(content)">Crear Ruta</button></mat-card>
-            <mat-card>Mis Rutas</mat-card>
+            <mat-card><button class="btn btn-lg btn-outline-primary" (click)="open(content2)">Mis Rutas</button></mat-card>
         </div>
         <div class="col-8">
             <mat-list>
                 <mat-list-item id="listItem" *ngFor="let ruta of rutas">
-                  
+
                     <a routerLink="/detail/{{ruta.idruta}}">
                       <i class="material-icons">favorite</i>
                     </a>
@@ -19,7 +19,7 @@
                     <span class="demo-2"> {{ruta.hora}}h </span>
                     <span> {{ruta.medio}} </span>
                   </p>
-                
+
                 </mat-list-item>
               </mat-list>
         </div>
@@ -92,7 +92,35 @@
             </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="createRuta(48,origen.value, destino.value, fecha.value, hora.value, medio.value, comentarios.value)" [disabled]="angForm.pristine || angForm.invalid">Publicar</button>
+      <button type="submit" class="btn btn-outline-dark" (click)="createRuta(48,origen.value, destino.value, fecha.value, hora.value, medio.value, comentarios.value)" [disabled]="angForm.pristine || angForm.invalid">Publicar</button>
     </div>
   </ng-template>
-  
+
+  <ng-template #content2 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Mis Rutas</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <mat-list>
+        <mat-list-item id="listItem" *ngFor="let ruta of rutas">
+
+            <a routerLink="/detail/{{ruta.idruta}}">
+              <i class="material-icons">favorite</i>
+            </a>
+            <i id="iconruta" matListAvatar class="material-icons">people</i>
+          <h1 id="rutaTitle" matLine> {{ruta.origen}} - {{ruta.destino}}</h1>
+          <p matLine>
+            <span class="demo-2"> {{ruta.hora}}h </span>
+            <span> {{ruta.medio}} </span>
+          </p>
+
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+  </ng-template>

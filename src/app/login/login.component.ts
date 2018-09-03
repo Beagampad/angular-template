@@ -9,20 +9,15 @@ import { UsersService } from 'src/app/users.service';
 })
 export class LoginComponent implements OnInit {
 
-
-  email = 'xx@hotmail.com';
-  password = '123';
-
   constructor(private api: UsersService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
-  tryLogin() {
-    this.api.login(
-      this.email,
-      this.password
+  tryLogin(email, password) {
+    console.log(email);
+    this.api.login(email, password
     )
       .subscribe(
         r => {

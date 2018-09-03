@@ -32,6 +32,19 @@ export class RutaComponent implements OnInit {
         .subscribe(rutas => this.rutas = rutas);
   }
 
+  getRutabyID(): void {
+    // Recuperar IdUsuaria Logueada
+    const helper = new JwtHelperService();
+    const token = localStorage.getItem(TOKEN); // recovery Token
+    console.log(token);
+    const decodedToken = helper.decodeToken(token);
+    const id = decodedToken.id;
+    console.log(id);
+
+    this.notaloneService.getRuta(id)
+        .subscribe(rutas => this.rutas = rutas);
+  }
+
   createForm() {
     this.angForm = this.fb.group({
       origen: ['', Validators.required ],
@@ -40,26 +53,24 @@ export class RutaComponent implements OnInit {
       hora: ['', Validators.required],
       medio: ['', Validators.required ],
       comentarios: ['', Validators.required ]
-
    });
   }
   // Crear Ruta por form
   createRuta(idusuaria, origen, destino, fecha, hora, medio, comentarios) {
 
-    console.log(origen);
-
-    //Recuperar IdUsuaria Logueada
+    // Recuperar IdUsuaria Logueada
     const helper = new JwtHelperService();
     const token = localStorage.getItem(TOKEN); // recovery Token
-    console.log(token);
+    // console.log(token);
     const decodedToken = helper.decodeToken(token);
     const id = decodedToken.id;
-    console.log(id);
+    // console.log(id);
 
-    this.notaloneService.createRuta(id, origen, destino, fecha, hora, medio, comentarios);
-        
-}
-  // MODAL CREAR RUTA
+    this.notaloneService.createRuta(id, origen, destino, fecha, hora, medio, comentarios)
+      .subscribe(rutas => this.rutas = rutas );
+  }
+
+  // MODAL CREAR RUTA Y MIS RUTAS
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

@@ -36,7 +36,7 @@ import { HomeLogOutComponent } from './home-log-out/home-log-out.component';
     RutaDetailComponent,
     LoginComponent,
     MyprofileComponent,
-    HomeLogOutComponent
+    HomeLogOutComponent,
   ],
   imports: [
     BrowserModule,

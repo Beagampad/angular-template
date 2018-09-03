@@ -29,11 +29,22 @@ export class MyprofileComponent implements OnInit {
 
     const helper = new JwtHelperService();
     const token = localStorage.getItem(TOKEN); // recovery Token
+    // console.log(token);
+    const decodedToken = helper.decodeToken(token);
+    const id = decodedToken.id;
+    // console.log(id);
+    this.usersService.getUser(id)
+      .subscribe(usuaria => this.usuaria = usuaria);
+  }
+
+  modificar(email, intereses): void {
+    const helper = new JwtHelperService();
+    const token = localStorage.getItem(TOKEN); // recovery Token
     console.log(token);
     const decodedToken = helper.decodeToken(token);
     const id = decodedToken.id;
     console.log(id);
-    this.usersService.getUser(id)
+    this.usersService.updateUser(email, intereses)
       .subscribe(usuaria => this.usuaria = usuaria);
   }
 

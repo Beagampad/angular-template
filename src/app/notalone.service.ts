@@ -16,7 +16,6 @@ export class NotaloneService {
 
   rutasUrl = 'http://localhost:3000'; // URL to web API de mi backend
 
-
   constructor(private http: HttpClient)  { }
   /**
  * Handle Http operation that failed.
@@ -54,23 +53,20 @@ getRuta(id: number): Observable<any> {
     );
   }
 
-  /** POST: add a new ruta to the server 
-  createRuta(ruta: IRuta): Observable<IRuta> {
-  return this.http.post<IRuta>(this.rutasUrl, ruta, httpOptions).pipe(
-    catchError(this.handleError<IRuta>('addRuta'))
-  );
-}*/
 createRuta(id: string, origen: string, destino: string, fecha: string, hora: string, medio: string, comentarios: string): Observable<any> {
   const url = `${this.rutasUrl}/notalone/createruta`; // ruta de mi back para el createruta
-  console.log(id);
+  console.log(url);
   console.log(origen);
-  return this.http.post<any>( url, {id: id, origen: origen, destino: destino, fecha:fecha, hora: hora, comentarios: comentarios}, httpOptions)
+  console.log(destino);
+  console.log(fecha);
+  return this.http.post<any>( url, {id: id, origen: origen, destino: destino, fecha:fecha, medio: medio, hora: hora, comentarios: comentarios}, httpOptions)
   .pipe(
+    map(data => console.log(data)),
     catchError(this.handleError('createRuta', 'error')));
   }
 
 }
-interface IRuta{
+interface IRuta {
   id: number;
   usuaria: string;
   hora ?: string;

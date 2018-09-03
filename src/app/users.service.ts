@@ -50,11 +50,17 @@ private handleError<T> (operation = 'operation', result?: T) {
   /** GET User by id */
   getUser(id: number): Observable<any> {
   const url = `${this.rutasUrl}/CRUD/detalles?id=${id}`;
-  console.log(url);
   return this.http.get<any>(url).pipe(
     catchError(this.handleError<IUser>(`getUser id=${id}`))
     );
   }
+  /** PUT: update the user on the server */
+  updateUser (email: string, intereses: string): Observable<any> {
+    const url = `${this.rutasUrl}/notalone/update`;
+  return this.http.post<any>(url, {email: email, intereses: intereses}, httpOptions).pipe(
+    catchError(this.handleError<any>(`updateHero`))
+  );
+}
   /** LOGIN */
   login(email: string, password: string): Observable<any> {
     const url = `${this.rutasUrl}/notalone/login`; // ruta de mi back para el login
