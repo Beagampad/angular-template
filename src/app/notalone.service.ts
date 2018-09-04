@@ -52,13 +52,9 @@ getRuta(id: number): Observable<any> {
     catchError(this.handleError<IRuta>(`getRuta id=${id}`))
     );
   }
-
+// Crear Ruta
 createRuta(id: string, origen: string, destino: string, fecha: string, hora: string, medio: string, comentarios: string): Observable<any> {
   const url = `${this.rutasUrl}/notalone/createruta`; // ruta de mi back para el createruta
-  console.log(url);
-  console.log(origen);
-  console.log(destino);
-  console.log(fecha);
   return this.http.post<any>( url, {id: id, origen: origen, destino: destino, fecha:fecha, medio: medio, hora: hora, comentarios: comentarios}, httpOptions)
   .pipe(
     map(data => console.log(data)),

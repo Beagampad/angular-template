@@ -18,6 +18,12 @@
             <button matTooltip="Info about the action" mat-button>UNIRME AL TRAYECTO</button>
             <button matTooltip="Info about the action" mat-button>DEJAR COMENTARIO</button>
           </mat-card-actions>
-      <img mat-card-image src="https://www.adslzone.net/app/uploads/2017/06/google-maps-715x374.jpg" alt="Foto Usuaria">
+
+          <agm-map [latitude]="lat1" [longitude]="lng1">
+              <!--<agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>-->
+              <!--<agm-marker  [latitude]="lat2" [longitude]="lng2"></agm-marker>-->
+              <agm-direction [origin]="origin" [destination]="destination"></agm-direction>
+
+          </agm-map>
     </mat-card>
   </div>

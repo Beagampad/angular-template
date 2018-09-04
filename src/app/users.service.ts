@@ -54,10 +54,11 @@ private handleError<T> (operation = 'operation', result?: T) {
     catchError(this.handleError<IUser>(`getUser id=${id}`))
     );
   }
-  /** PUT: update the user on the server */
-  updateUser (email: string, intereses: string): Observable<any> {
+  /** POST: update the user on the server */
+  updateUser (id: number, email: string, intereses: string): Observable<any> {
     const url = `${this.rutasUrl}/notalone/update`;
-  return this.http.post<any>(url, {email: email, intereses: intereses}, httpOptions).pipe(
+    console.log(email);
+  return this.http.post<any>(url, {id: id, email: email, intereses: intereses}, httpOptions).pipe(
     catchError(this.handleError<any>(`updateHero`))
   );
 }

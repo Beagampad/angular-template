@@ -1,42 +1,38 @@
 <div class="container mt-5">
-    <form [formGroup]="updateForm" id="formularioModificacion" enctype="multipart/form-data">
+    <div *ngIf='angForm'>
+
+    <form [formGroup]="angForm" id="formularioModificacion" enctype="multipart/form-data">
       <div class="form-group">
           <label  class="font-weight-bold" for="name">Nombre</label>
-          <input id="nombre" type="text" class="form-control" data-validation="required alphanumeric" value="{{usuaria[0].nombre}}"
-          name="name">
+          <p>{{usuaria[0].nombre}}</p>
       </div>
+
     <div class="form-group">
           <label  class="font-weight-bold" for="phone">Apellidos</label>
-          <input id="apellidos" type="text" class="form-control" data-validation="required alphanumeric" value={{usuaria[0].apellidos}}
-          name="phone">
+          <p>{{usuaria[0].apellidos}}</p>
       </div>
+
       <div class="form-group">
           <label class="font-weight-bold" for="date">Fecha de nacimiento</label>
-        <input id="fecha" type="date" class="form-control" data-validation="required date" value="{{usuaria[0].fechanacimiento}}"
-          data-validation-format="dd/mm/yyyy" name="date">
+          <p>{{usuaria[0].fechanacimiento}}</p>
       </div>
+
       <div class="form-group">
           <label  class="font-weight-bold" for="comment">Intereses</label>
           <textarea class="form-control" rows="5" id="intereses" formControlName="intereses" #intereses>{{usuaria[0].intereses}}</textarea>
       </div>
+
       <div class="form-group">
           <label class="font-weight-bold" for="email">Email</label>
           <input id="email" type="text" class="form-control" data-validation="required email" value="{{usuaria[0].email}}" formControlName="email" #email placeholder="email">
       </div>
-    <!-- <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" data-validation="required alphanumeric"  placeholder="Password">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Repetir Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" data-validation="required alphanumeric" placeholder="Password">
-        </div>-->
 
       <div class="form-group">
           <button type="submit" class="btn btn-primary btn-lg boton-modificar" (click)="modificar(email.value, intereses.value)">Modificar</button>
       </div>
 
   </form>
+</div>
   <div class="col-md-4">
     <div class="form-group">
         <img class="foto-user" src="http://localhost:3000/{{usuaria[0].foto}}">

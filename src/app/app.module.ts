@@ -23,6 +23,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeLogOutComponent } from './home-log-out/home-log-out.component';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 
 
 
@@ -51,7 +53,11 @@ import { HomeLogOutComponent } from './home-log-out/home-log-out.component';
     MatChipsModule,
     MatTooltipModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAorDvL2UTCJNA_mqwBM0j8ZHkcFl-PWW8'
+    }),
+    AgmDirectionModule
   ],
   providers: [
     NeedAuthGuard

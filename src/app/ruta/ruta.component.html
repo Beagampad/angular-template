@@ -34,6 +34,8 @@
       </button>
     </div>
     <div class="modal-body">
+
+
             <form [formGroup]="angForm" novalidate id="formruta" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Punto de partida</label>
@@ -90,6 +92,7 @@
                         <div *ngIf="angForm.controls['comentarios'].errors.required"> Los comentarios son obligatorios</div>
                 </div>
             </form>
+
     </div>
     <div class="modal-footer">
       <button type="submit" class="btn btn-outline-dark" (click)="createRuta(48,origen.value, destino.value, fecha.value, hora.value, medio.value, comentarios.value)" [disabled]="angForm.pristine || angForm.invalid">Publicar</button>
