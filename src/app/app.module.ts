@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeLogOutComponent } from './home-log-out/home-log-out.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -57,7 +58,8 @@ import { AgmDirectionModule } from 'agm-direction';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAorDvL2UTCJNA_mqwBM0j8ZHkcFl-PWW8'
     }),
-    AgmDirectionModule
+    AgmDirectionModule,
+    MatInputModule
   ],
   providers: [
     NeedAuthGuard

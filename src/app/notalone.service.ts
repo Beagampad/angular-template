@@ -33,14 +33,13 @@ private handleError<T> (operation = 'operation', result?: T) {
     return of(result as T);
   };
 }
-
+  // Get all rutas
   getRutas(): Observable<any> {
     // return of(RUTAS);
     const url = `${this.rutasUrl}/notalone/rutas`;
     return this.http.get<any>(url)// espera una interfaz de rutas, si no es así poner any
     .pipe(
       map(data => data),
-
        catchError(this.handleError('getRutas', []))
     );
   }
@@ -60,6 +59,30 @@ createRuta(id: string, origen: string, destino: string, fecha: string, hora: str
     map(data => console.log(data)),
     catchError(this.handleError('createRuta', 'error')));
   }
+
+getCoordOrig(id: string, ciudad: string){
+  const url = `${this.rutasUrl}/notalone/coord`; // ruta de mi back para el createruta
+  return this.http.post<any>(url, {id: id, ciudad: ciudad}, httpOptions)
+    .pipe(
+      map(data => data),
+      catchError(this.handleError('getCoord', 'error')));
+}
+
+getCoordDest(id: string, ciudad: string){
+  const url = `${this.rutasUrl}/notalone/coord2`; // ruta de mi back para el createruta
+  return this.http.post<any>(url, {id: id, ciudad: ciudad}, httpOptions)
+    .pipe(
+      map(data => data),
+      catchError(this.handleError('getCoord', 'error')));
+}
+
+leavecomment(id: string, comment: string){
+  const url = `${this.rutasUrl}/notalone/coord2`; // ruta de mi back para el createruta
+  return this.http.post<any>(url, {id: id, comment: comment}, httpOptions)
+    .pipe(
+      map(data => data),
+      catchError(this.handleError('leavecomment', 'error')));
+}
 
 }
 interface IRuta {

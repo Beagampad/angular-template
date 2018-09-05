@@ -53,11 +53,13 @@ export class RutaDetailComponent implements OnInit {
       });
   }
 
+  var app = angular.module('app', ['ngTextareaEnter']);
 
-  /*recenterMap(lat, lng){
-    this.lat1 = lat;
-    this.lng1 = lng;
-    }*/
+app.controller('appCtrl', ['$scope', function($scope) {
+  $scope.textareaAction = function() {
+    alert($scope.textareaModel);
+  };
+}]);
 
 }
 

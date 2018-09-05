@@ -18,6 +18,10 @@
             <button matTooltip="Info about the action" mat-button>UNIRME AL TRAYECTO</button>
             <button matTooltip="Info about the action" mat-button>DEJAR COMENTARIO</button>
           </mat-card-actions>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Leave a comment" enter=leavecomment()></textarea>
+          </mat-form-field>
+
 
           <agm-map [latitude]="lat1" [longitude]="lng1">
               <!--<agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>-->

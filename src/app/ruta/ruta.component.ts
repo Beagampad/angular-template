@@ -16,6 +16,7 @@ export class RutaComponent implements OnInit {
   rutas: IRuta[] = [];
   closeResult: string;
   angForm: FormGroup;
+  coordenadas: string;
 
   constructor(private notaloneService: NotaloneService, private modalService: NgbModal, private fb: FormBuilder) {
 
@@ -66,10 +67,20 @@ export class RutaComponent implements OnInit {
     const id = decodedToken.id;
     // console.log(id);
 
+    this.notaloneService.getCoordOrig(idusuaria, origen)// Get coordenadas de origen
+      .subscribe(coordenadas => this.coordenadas = coordenadas);
+
+      console.log(destino);
+
+    this.notaloneService.getCoordDest(idusuaria, destino)// Get coordenadas de destino
+      .subscribe(coordenadas => this.coordenadas = coordenadas);
+
+      console.log(this.coordenadas);
+
     this.notaloneService.createRuta(id, origen, destino, fecha, hora, medio, comentarios)
       .subscribe(rutas => this.rutas = rutas );
-  }
 
+  }
   // MODAL CREAR RUTA Y MIS RUTAS
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -97,6 +108,7 @@ interface IRuta {
   destino: string;
   medio: string;
   coordenadas: string;
+  coordenadas2: string;
   comentarios: string;
 }
 
