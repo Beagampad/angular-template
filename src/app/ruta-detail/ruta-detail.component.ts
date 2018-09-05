@@ -53,13 +53,16 @@ export class RutaDetailComponent implements OnInit {
       });
   }
 
-  var app = angular.module('app', ['ngTextareaEnter']);
+  leavecomment(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    // console.log(id);
+    this.notaloneService.getRuta(id)
+      .subscribe(ruta => {this.ruta = ruta;
+        this.usersService.getUser(ruta[0].idusuaria).subscribe(usuaria => this.usuaria = usuaria) ;
+      });
+  }
 
-app.controller('appCtrl', ['$scope', function($scope) {
-  $scope.textareaAction = function() {
-    alert($scope.textareaModel);
-  };
-}]);
+
 
 }
 
