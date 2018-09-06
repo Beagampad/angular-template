@@ -15,19 +15,33 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-            <button matTooltip="Info about the action" mat-button>UNIRME AL TRAYECTO</button>
-            <button matTooltip="Info about the action" mat-button>DEJAR COMENTARIO</button>
+            <button matTooltip="Se le enviará un correo con tu tfn" (click)="joinme(usuaria[0].email, content)" mat-button>UNIRME AL TRAYECTO</button>
+            <!--<button matTooltip="Info about the action" mat-button>DEJAR COMENTARIO</button>-->
           </mat-card-actions>
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Leave a comment" enter=leavecomment()></textarea>
-          </mat-form-field>
-
-
+          <!--<form [formGroup]="angForm" novalidate id="formruta" enctype="multipart/form-data">
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Deja un comentario" formControlName="disscuss" #disscuss enter=leavecomment(disscuss.value)></textarea>
+            </mat-form-field>
+         </form>-->
           <agm-map [latitude]="lat1" [longitude]="lng1">
-              <!--<agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>-->
-              <!--<agm-marker  [latitude]="lat2" [longitude]="lng2"></agm-marker>-->
               <agm-direction [origin]="origin" [destination]="destination"></agm-direction>
-
           </agm-map>
     </mat-card>
   </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Correo enviado!</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Se ha enviado un correo a {{usuaria[0].nombre}} , en breve se pondrá en contacto contigo.</label>
+    </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+  </ng-template>

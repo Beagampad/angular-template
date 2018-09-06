@@ -26,6 +26,7 @@ import { HomeLogOutComponent } from './home-log-out/home-log-out.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import {MatInputModule} from '@angular/material/input';
+import { MisinvitacionesComponent } from './misinvitaciones/misinvitaciones.component';
 
 
 
@@ -40,6 +41,7 @@ import {MatInputModule} from '@angular/material/input';
     LoginComponent,
     MyprofileComponent,
     HomeLogOutComponent,
+    MisinvitacionesComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,7 @@ import {MatInputModule} from '@angular/material/input';
       apiKey: 'AIzaSyAorDvL2UTCJNA_mqwBM0j8ZHkcFl-PWW8'
     }),
     AgmDirectionModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [
     NeedAuthGuard

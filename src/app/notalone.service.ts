@@ -61,7 +61,7 @@ createRuta(id: string, origen: string, destino: string, fecha: string, hora: str
   }
 
 getCoordOrig(id: string, ciudad: string){
-  const url = `${this.rutasUrl}/notalone/coord`; // ruta de mi back para el createruta
+  const url = `${this.rutasUrl}/notalone/coord`; // ruta de mi back
   return this.http.post<any>(url, {id: id, ciudad: ciudad}, httpOptions)
     .pipe(
       map(data => data),
@@ -69,19 +69,28 @@ getCoordOrig(id: string, ciudad: string){
 }
 
 getCoordDest(id: string, ciudad: string){
-  const url = `${this.rutasUrl}/notalone/coord2`; // ruta de mi back para el createruta
+  const url = `${this.rutasUrl}/notalone/coord2`; // ruta de mi back
   return this.http.post<any>(url, {id: id, ciudad: ciudad}, httpOptions)
     .pipe(
       map(data => data),
       catchError(this.handleError('getCoord', 'error')));
 }
 
-leavecomment(id: string, comment: string){
-  const url = `${this.rutasUrl}/notalone/coord2`; // ruta de mi back para el createruta
+/*leavecomment(id: string, comment: string){
+  const url = `${this.rutasUrl}/notalone/coord2`; // ruta de mi back
   return this.http.post<any>(url, {id: id, comment: comment}, httpOptions)
     .pipe(
       map(data => data),
       catchError(this.handleError('leavecomment', 'error')));
+}*/
+
+joinme(nombre, tfn, email, emaillog) {
+  const url = `${this.rutasUrl}/notalone/joinme`; // ruta de mi back
+  console.log(url);
+  return this.http.post<any>(url, {nombre: nombre, tfn: tfn, email: email, emaillog: emaillog}, httpOptions)
+    .pipe(
+      map(data => data),
+      catchError(this.handleError('joinme', 'error')));
 }
 
 }

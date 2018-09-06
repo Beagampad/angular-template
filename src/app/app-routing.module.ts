@@ -7,6 +7,7 @@ import { LoginComponent } from 'src/app/login/login.component';
 import { NeedAuthGuard } from 'src/app/auth.guard';
 import { MyprofileComponent } from 'src/app/myprofile/myprofile.component';
 import { HomeLogOutComponent } from './home-log-out/home-log-out.component';
+import { MisinvitacionesComponent } from './misinvitaciones/misinvitaciones.component';
 
 const routes: Routes = [
   {path: 'rutas', component: RutaComponent},
@@ -14,6 +15,8 @@ const routes: Routes = [
   {path: 'detail/:id', component: RutaDetailComponent},
   {path: 'profile', component: MyprofileComponent},
   {path: 'home', component: HomeLogOutComponent},
+  {path: 'misinvitaciones', component: MisinvitacionesComponent},
+
 
   {
     path: '',

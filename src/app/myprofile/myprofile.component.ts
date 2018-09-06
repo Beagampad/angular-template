@@ -3,7 +3,7 @@ import { UsersService} from 'src/app/users.service';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import {  FormControl, FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import {  FormControl, FormGroup,  FormBuilder } from '@angular/forms';
 
 const TOKEN = 'TOKEN';
 
@@ -21,8 +21,8 @@ export class MyprofileComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private usersService: UsersService,
-    private fb: FormBuilder
-  ) { this.createForm();}
+    // private fb: FormBuilder
+  ) { this.createForm(); }
 
   ngOnInit(): void {
     this.getUser();
