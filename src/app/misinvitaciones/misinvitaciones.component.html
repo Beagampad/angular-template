@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div *ngIf='angForm'>
     <div class="form-group">
-        <label  class="font-weight-bold" for="name">Nº de invitaciones</label>
+        <label  class="font-weight-bold" for="name">Nº de invitaciones restantes: {{invitacion[0].numinvitaciones}}</label>
         <p></p>
     </div>
 
@@ -10,20 +10,32 @@
       <form [formGroup]="angForm" id="formularioModificacion" enctype="multipart/form-data">
           <div class="form-group">
           <label for="exampleInputEmail1">Escribe el mail de tu invitada</label>
-          <input formControlName="passinvitada" #passinvitada type="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder=" invitada@email.com">
+          <input formControlName="email" #email type="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder=" invitada@email.com">
           </div>
           <div class="form-group">
           <label for="exampleInputPassword1">Comentarios</label>
-          <textarea formControlName="interest" #interest class="form-control" rows="5" id="intereses"></textarea>
+          <textarea formControlName="comentarios" #comentarios class="form-control" rows="5" id="intereses"></textarea>
           </div>
-          <button id="btninvitation" type="button" (click)="sendinvitation()" class="btn btn-primary">Enviar</button>
+          <button id="btninvitation" type="button" (click)="sendinvitation(email.value, comentarios.value, invitacion[0].numinvitaciones, content)" [disabled]="invitacion[0].numinvitaciones == '0'" class="btn btn-primary">Enviar</button>
       </form>
 
 </div>
-<div class="col-md-4">
-  <div class="form-group">
-      <!--<img class="foto-user" src="http://localhost:3000/{{usuaria[0].foto}}">-->
 
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Correo enviado!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-</div>
-</div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label>Se ha enviado la invitación correctamente.</label>
+  </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+  </div>
+</ng-template>

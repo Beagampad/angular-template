@@ -82,6 +82,21 @@ private handleError<T> (operation = 'operation', result?: T) {
   logout() {
     localStorage.removeItem(TOKEN);
 }
+  // Envío de Invitaciones
+  sendInvitation(idusuaria: number, email: string, comentarios: string, invitaciones: number) {
+    const url = `${this.rutasUrl}/notalone/invitacion`; // ruta de mi back
+    console.log(invitaciones);
+    return this.http.post<any>(url, {idusuaria: idusuaria, email: email, comentarios: comentarios, invitaciones: invitaciones}, httpOptions)
+    .pipe(
+      catchError(this.handleError('sendInvitation', 'error')));
+  }
+  // Consulta de nº de invitaciones que quedan por enviar
+  numInvitation(idusuaria: number) {
+    const url = `${this.rutasUrl}/notalone/numinvitacion?id=${idusuaria}`; // ruta de mi back
+    return this.http.get<any>(url)
+    .pipe(
+      catchError(this.handleError('numInvitation', 'error')));
+  }
 }
 
 interface IUser {

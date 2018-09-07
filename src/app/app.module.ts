@@ -27,6 +27,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import {MatInputModule} from '@angular/material/input';
 import { MisinvitacionesComponent } from './misinvitaciones/misinvitaciones.component';
+import { RegistroComponent } from './registro/registro.component';
 
 
 
@@ -42,6 +43,7 @@ import { MisinvitacionesComponent } from './misinvitaciones/misinvitaciones.comp
     MyprofileComponent,
     HomeLogOutComponent,
     MisinvitacionesComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,

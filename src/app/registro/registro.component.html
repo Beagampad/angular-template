@@ -1,0 +1,52 @@
+<div class="container acceso">
+  <h1  class="display-4 text-info titulo">Solicitud de Acceso</h1>
+
+<form id="formularioContacto" [formGroup]="angForm" enctype="multipart/form-data">
+  <div class="form-group">
+      <label for="name">Nombre</label>
+      <input id="nombre" formControlName="nombre" #nombre type="text" class="form-control" data-validation="custom" data-validation-regexp="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" data-validation-length="min3" name="name">
+
+  </div>
+ <div class="form-group">
+      <label for="phone">Apellidos</label>
+      <input id="apellidos" formControlName="apellidos" #apellidos type="text" class="form-control" data-validation="custom" data-validation-regexp="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,64}" data-validation-length="min3" name="surname">
+
+  </div>
+  <div class="form-group">
+    <label for="dateOfBirth">Fecha de Nacimiento</label>
+    <div class="input-group">
+      <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp="ngbDatepicker" formControlName="fecha" #fecha>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+      <label for="comment">Intereses</label>
+      <textarea class="form-control" rows="5" FormControlName="intereses" #intereses id="intereses"></textarea>
+    </div>
+  <div class="form-group">
+        <label for="exampleFormControlFile1">Subir Foto</label>
+        <input type="file" FormControlName="foto" #foto class="form-control-file"  id="foto" name="foto">
+  </div>
+  <div class="form-group">
+      <label for="email">Email</label>
+      <input id="mail" type="text" class="form-control" FormControlName="email" #email data-validation="required email">
+
+  </div>
+ <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input name="password1" type="password" class="form-control" FormControlName="password1" #password1 id="password1" data-validation="required alphanumeric"  placeholder="Password">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Repetir Password</label>
+      <input name="password2" type="password"  FormControlName="password2" #password2 class="form-control" id="password2" data-validation="confirmation" data-validation-confirm="password" placeholder="Password">
+    </div>
+
+
+  <div class="form-group">
+      <button id="boton-registro" type="submit" class="btn btn-primary btn-lg btn-acceso" data-target="#exampleModal">Enviar</button>
+  </div>
+</form>
+
+</div>
