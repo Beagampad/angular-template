@@ -28,6 +28,11 @@ import { AgmDirectionModule } from 'agm-direction';
 import {MatInputModule} from '@angular/material/input';
 import { MisinvitacionesComponent } from './misinvitaciones/misinvitaciones.component';
 import { RegistroComponent } from './registro/registro.component';
+import { AdminComponent } from './admin/admin.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 
@@ -44,6 +49,7 @@ import { RegistroComponent } from './registro/registro.component';
     HomeLogOutComponent,
     MisinvitacionesComponent,
     RegistroComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +70,9 @@ import { RegistroComponent } from './registro/registro.component';
     }),
     AgmDirectionModule,
     MatInputModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   providers: [
     NeedAuthGuard

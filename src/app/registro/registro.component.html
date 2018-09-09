@@ -1,5 +1,5 @@
 <div class="container acceso">
-  <h1  class="display-4 text-info titulo">Solicitud de Acceso</h1>
+  <h1  class="titulo">Registro de Usuaria</h1>
 
 <form id="formularioContacto" [formGroup]="angForm" enctype="multipart/form-data">
   <div class="form-group">
@@ -22,6 +22,10 @@
     </div>
   </div>
   <div class="form-group">
+    <label for="exampleInputPassword1">Nº Teléfono</label>
+    <input  type="text" FormControlName="tfn" #tfn class="form-control" id="tfn"  placeholder="teléfono">
+  </div>
+  <div class="form-group">
       <label for="comment">Intereses</label>
       <textarea class="form-control" rows="5" FormControlName="intereses" #intereses id="intereses"></textarea>
     </div>
@@ -38,14 +42,11 @@
       <label for="exampleInputPassword1">Password</label>
       <input name="password1" type="password" class="form-control" FormControlName="password1" #password1 id="password1" data-validation="required alphanumeric"  placeholder="Password">
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Repetir Password</label>
-      <input name="password2" type="password"  FormControlName="password2" #password2 class="form-control" id="password2" data-validation="confirmation" data-validation-confirm="password" placeholder="Password">
-    </div>
+    
 
 
   <div class="form-group">
-      <button id="boton-registro" type="submit" class="btn btn-primary btn-lg btn-acceso" data-target="#exampleModal">Enviar</button>
+      <button id="boton-registro" type="button" (click)="createUsuaria(nombre.value, apellidos.value, fecha.value,tfn.value, intereses.value, foto.value, email.value, password1.value)" class="btn btn-primary btn-lg btn-acceso" data-target="#exampleModal">Enviar</button>
   </div>
 </form>
 

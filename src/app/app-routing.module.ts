@@ -9,6 +9,7 @@ import { MyprofileComponent } from 'src/app/myprofile/myprofile.component';
 import { HomeLogOutComponent } from './home-log-out/home-log-out.component';
 import { MisinvitacionesComponent } from './misinvitaciones/misinvitaciones.component';
 import { RegistroComponent} from './registro/registro.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {path: 'rutas', component: RutaComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'profile', component: MyprofileComponent},
   {path: 'home', component: HomeLogOutComponent},
   {path: 'misinvitaciones', component: MisinvitacionesComponent},
-  {path: 'registro', component: RegistroComponent},
+  {path: 'registro/:tk', component: RegistroComponent},
+  {path: 'admin', component: AdminComponent},
 
 
   {

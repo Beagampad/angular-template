@@ -97,6 +97,33 @@ private handleError<T> (operation = 'operation', result?: T) {
     .pipe(
       catchError(this.handleError('numInvitation', 'error')));
   }
+
+  // REGISTRO DE USUARIA
+  registerUser(nombre: string,apellidos:string, fechanacimiento: string, tfn: string, intereses: string, foto: string, email: string, password1:string): Observable<any> {
+    
+    
+    const url = `${this.rutasUrl}/notalone/register`; // ruta de mi back
+    console.log(url);
+    console.log(nombre);
+    return this.http.post<any>(url,{nombre:nombre, apellidos: apellidos, fechanacimiento: fechanacimiento,tfn: tfn, intereses:intereses, foto: foto, email: email, password1: password1},httpOptions)
+    .pipe(
+      map(data => data),
+      catchError(this.handleError('registerUser', 'error')));
+  }
+
+  checkToken(token: number): Observable<any>{
+
+    console.log(token);
+
+    const url = `${this.rutasUrl}/notalone/checktoken?tk=${token}`; // ruta de mi back
+
+    console.log(url);
+
+    return this.http.get<any>(url)
+    .pipe(
+      map(data => data),
+      catchError(this.handleError('checkToken', 'error')));
+  }
 }
 
 interface IUser {
