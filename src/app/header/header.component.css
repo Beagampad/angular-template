@@ -1,5 +1,5 @@
 #logo{
-    width: 40%;
+    width: 35%;
 }
 .nav-link{
     margin-right: 50px;
@@ -13,7 +13,8 @@
     border: 1px #3f204e solid;
 }
 #navbar{
-  /* background-color: #673ab724;*/
+   background-color: #3f51b5;
+   box-shadow: 0px 10px 5px -6px rgba(0,0,0,0.23);
 }
 a{
     color:#969292;
@@ -22,4 +23,10 @@ a{
 }
 mat-menu-item{
   margin-right: 5%;
+}
+button.mat-flat-button:hover{
+    background-color: #b6acc7a3;
+}
+button.mat-flat-button:focus{
+    background-color: #b6acc7a3;
 }

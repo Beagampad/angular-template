@@ -32,6 +32,7 @@ import { AdminComponent } from './admin/admin.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { AdminUpdateComponent } from './admin-update/admin-update.component';
 
 
 
@@ -50,6 +51,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MisinvitacionesComponent,
     RegistroComponent,
     AdminComponent,
+    AdminUpdateComponent,
   ],
   imports: [
     BrowserModule,

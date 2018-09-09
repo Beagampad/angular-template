@@ -57,9 +57,9 @@ private handleError<T> (operation = 'operation', result?: T) {
   /** POST: update the user on the server */
   updateUser (id: number, email: string, intereses: string): Observable<any> {
     const url = `${this.rutasUrl}/notalone/update`;
-    console.log(email);
+    console.log(intereses);
   return this.http.post<any>(url, {id: id, email: email, intereses: intereses}, httpOptions).pipe(
-    catchError(this.handleError<any>(`updateHero`))
+    catchError(this.handleError<any>(`updateUser`))
   );
 }
   /** LOGIN */

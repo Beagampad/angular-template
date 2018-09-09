@@ -10,6 +10,7 @@ import { HomeLogOutComponent } from './home-log-out/home-log-out.component';
 import { MisinvitacionesComponent } from './misinvitaciones/misinvitaciones.component';
 import { RegistroComponent} from './registro/registro.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminUpdateComponent } from './admin-update/admin-update.component';
 
 const routes: Routes = [
   {path: 'rutas', component: RutaComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'misinvitaciones', component: MisinvitacionesComponent},
   {path: 'registro/:tk', component: RegistroComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'detailUser/:id', component: AdminUpdateComponent},
 
 
   {

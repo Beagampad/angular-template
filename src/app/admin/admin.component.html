@@ -1,24 +1,22 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <!--<div class="example-container mat-elevation-z8">
-  <div class="example-loading-shade"
-       *ngIf="isLoadingResults || isRateLimitReached">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-  </div>-->
-
   
 <div class="container">
     <div class="row">
         <div class="col-12">
             <mat-list>
                 <mat-list-item id="listItem" *ngFor="let usuaria of usuarias">
-                <img id="foto" src="http://localhost:3000/{{usuaria.foto}}">
+                  <img id="foto" src="http://localhost:3000/{{usuaria.foto}}"/>
+                
+                    <a routerLink="/detailUser/{{usuaria.id}}">
+                      <i class="material-icons">crop_free</i></a>
+                    
                     <a routerLink="/detail/{{usuaria.id}}">
-                      <i class="material-icons">favorite</i>
-                    </a>
-                    <i id="iconruta" matListAvatar class="material-icons">people</i>
-                  <h1 id="rutaTitle" matLine> {{usuaria.nombre}} - {{usuaria.destino}}</h1>
+                    <i class="material-icons">cancel </i></a>
+                      
+                     
+                  <h1 id="rutaTitle" matLine> {{usuaria.nombre}}  {{usuaria.apellidos}}</h1>
                   <p matLine>
-                    <span class="demo-2"> {{usuaria.fechanacimiento}}h </span>
+                    <span class="demo-2"> {{usuaria.fechanacimiento}} </span>
                     <span> {{usuaria.email}} </span>
                   </p>
 
@@ -27,3 +25,7 @@
         </div>
     </div>
 </div>
+
+<ng-template #content let-modal>
+  
+</ng-template>

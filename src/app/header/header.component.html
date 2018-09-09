@@ -3,26 +3,25 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    <a routerLink=""><img id="logo" src="/src/assets/img/logo-morado.png"></a>
+    <a routerLink=""><img id="logo" src="/src/assets/img/logo-blanco.png"></a>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 
         <button mat-flat-button routerLink="">Home</button>
         <button mat-flat-button routerLink="/rutas">Rutas</button>
-
         <button mat-flat-button [matMenuTriggerFor]="menu">Usuaria</button>
+        <button mat-flat-button routerLink="">logOut</button>
         <mat-menu #menu="matMenu">
           <h6 class="dropdown-header">Usuaria</h6>
           <button mat-menu-item routerLink="/profile">Mi Perfil</button>
           <button mat-menu-item routerLink="/misinvitaciones">Mis Invitaciones</button>
         </mat-menu>
 
-        <mat-chip-list>
-            <mat-chip color="accent" selected>LogOut</mat-chip>
-          </mat-chip-list>
       </div>
   </div>
 </nav>
+
+
 
 
 
