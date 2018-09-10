@@ -33,6 +33,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AdminUpdateComponent } from './admin-update/admin-update.component';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 
 
@@ -52,6 +53,7 @@ import { AdminUpdateComponent } from './admin-update/admin-update.component';
     RegistroComponent,
     AdminComponent,
     AdminUpdateComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
