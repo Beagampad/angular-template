@@ -3,6 +3,7 @@ import { NotaloneService } from 'src/app/notalone.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const TOKEN = 'TOKEN';
 
@@ -18,7 +19,7 @@ export class RutaComponent implements OnInit {
   angForm: FormGroup;
   coordenadas: string;
 
-  constructor(private notaloneService: NotaloneService, private modalService: NgbModal, private fb: FormBuilder) {
+  constructor(private notaloneService: NotaloneService, private modalService: NgbModal, private router: Router, private fb: FormBuilder) {
 
     this.createForm();
    }
@@ -79,6 +80,9 @@ export class RutaComponent implements OnInit {
 
     this.notaloneService.createRuta(id, origen, destino, fecha, hora, medio, comentarios)
       .subscribe(rutas => this.rutas = rutas );
+      
+    modal.close('Close click')
+    this.router.navigateByUrl('/rutas');
 
   }
   // MODAL CREAR RUTA Y MIS RUTAS
