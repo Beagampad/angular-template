@@ -5,7 +5,6 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 const TOKEN = 'TOKEN';
 
-
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -81,7 +80,7 @@ private handleError<T> (operation = 'operation', result?: T) {
   }
 
   logout() {
-    console.log("logout")
+    console.log('logout');
     localStorage.removeItem(TOKEN);
 }
   // Envío de Invitaciones
@@ -100,19 +99,7 @@ private handleError<T> (operation = 'operation', result?: T) {
       catchError(this.handleError('numInvitation', 'error')));
   }
 
-  // REGISTRO DE USUARIA
-  registerUser(nombre: string,apellidos:string, fechanacimiento: string, tfn: string, intereses: string, email: string, password1:string): Observable<any> {
-
-    const url = `${this.rutasUrl}/notalone/register`; // ruta de mi back
-    console.log(url);
-    console.log(nombre);
-    return this.http.post<any>(url,{nombre:nombre, apellidos: apellidos, fechanacimiento: fechanacimiento,tfn: tfn, intereses:intereses, email: email, password1: password1},httpOptions)
-    .pipe(
-      map(data => data),
-      catchError(this.handleError('registerUser', 'error')));
-  }
-
-  checkToken(token: number): Observable<any>{
+  checkToken(token: number): Observable<any> {
 
     console.log(token);
 
@@ -125,15 +112,23 @@ private handleError<T> (operation = 'operation', result?: T) {
       map(data => data),
       catchError(this.handleError('checkToken', 'error')));
   }
-  postFile(fileToUpload: File): Observable<any> {
+// REGISTRO DE USUARIA
+  postFile(fileToUpload: File, nombre:string, apellidos: string, fechanacimiento: string, tfn: string, intereses: string, email: string, password1: string): Observable<any> {
     const url = 'http://localhost:3000/notalone/register';
     const formData: FormData = new FormData();
     formData.append('foto', fileToUpload, fileToUpload.name);
+    formData.append('nombre', nombre);
+    formData.append('apellidos', apellidos);
+    formData.append('fechanacimiento', fechanacimiento);
+    formData.append('tfn', tfn);
+    formData.append('intereses', intereses);
+    formData.append('email', email);
+    formData.append('password1', password1);
     console.log(formData);
     return this.http.post<any>(url, formData )
     .pipe(
         map(() => true),
-      catchError(this.handleError('postFile','error')));
+      catchError(this.handleError('postFile', 'error')));
   }
 }
 

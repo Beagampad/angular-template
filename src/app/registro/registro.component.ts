@@ -15,6 +15,7 @@ export class RegistroComponent implements OnInit {
   angForm: FormGroup;
   usuaria: IUser[] = [];
   token = false;
+  // files: FileList;
   /*public uploader: FileUploader = new FileUploader({url: URL});
   public hasBaseDropZoneOver = false;
   public hasAnotherDropZoneOver = false;*/
@@ -33,14 +34,14 @@ export class RegistroComponent implements OnInit {
     this.fileToUpload = files.item(0);
     console.log(files.item(0));
 }
-  uploadFileToActivity() {
+  /*uploadFileToActivity() {
   this.usersService.postFile(this.fileToUpload)
-  .subscribe(data => { console.log("OK")
+  .subscribe(data => { console.log('OK')
     // do something, if upload success
     }, error => {
       console.log(error);
     });
-}
+}*/
 
   createForm() {
 
@@ -57,9 +58,11 @@ export class RegistroComponent implements OnInit {
   }
 
   // Crear Usuaria por form
-  createUsuaria(nombre, apellidos, fechanacimiento, tfn, intereses, email, password1) {
+  createUsuaria(files, nombre, apellidos, fechanacimiento, tfn, intereses, email, password1) {
 
-   this.uploadFileToActivity();
+   // this.uploadFileToActivity();
+
+   console.log(this.fileToUpload);
 
     const tk = +this.route.snapshot.paramMap.get('tk');
 
@@ -68,7 +71,7 @@ export class RegistroComponent implements OnInit {
 
           console.log(this.token);
         if (this.token) {// Si existe el token registro al usuario, devuelve un booleano
-          this.usersService.registerUser(nombre, apellidos, fechanacimiento, tfn, intereses, email, password1)
+          this.usersService.postFile(this.fileToUpload, nombre, apellidos, fechanacimiento, tfn, intereses, email, password1)
           .subscribe(usuaria => this.usuaria = usuaria );
         } else {
           this.router.navigateByUrl('/home');

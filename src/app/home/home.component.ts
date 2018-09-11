@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { UsersService } from '../users.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 const TOKEN = 'TOKEN';
 
@@ -12,8 +13,12 @@ const TOKEN = 'TOKEN';
 export class HomeComponent implements OnInit {
 
   usuaria: IUser[] = [];
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
 
-  constructor(private usersService: UsersService) { }
+
+  constructor(private usersService: UsersService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
 
@@ -26,6 +31,13 @@ export class HomeComponent implements OnInit {
     // console.log(id);
 
     this.usersService.getUser(id).subscribe(usuaria => this.usuaria = usuaria) ;
+
+    this.firstFormGroup = this.formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this.formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
   }
 
 }

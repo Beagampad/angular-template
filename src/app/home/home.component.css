@@ -1,0 +1,19 @@
+.container{
+  margin-top: 50px;
+}
+mat-horizontal-stepper{
+  margin-top: 100px;
+}
+#welcome{
+  text-align: center;
+}
+.mat-step-label-selected{
+  font-weight: bold!important;
+}
+.step{
+  padding: 20px;
+  background-color: #3f51b524;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 50px;
+}

@@ -1,34 +1,25 @@
-<body class="dark">
-  <!--video id="video_background" src="src/assets/img/video.mp4" loop autoplay></video>-->
-  <img id="video_background" src="/src/assets/img/portada.jpg" alt="First slide">
+<body id="video_background" class="dark text-center">
   <div id="transparencia"></div>
   <div id="contenedor-inicio" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      
-
       <main role="main" class="">
-        <img id="logo" src="src/assets/img/logo-blanco.png" alt="logo">
-        <form>
+        <form class="form-signin">
+          <img  class="mb-4" id="logo" src="src/assets/img/logo-morado.png" alt="logo" width="200">
           <div class="card mt-5" style="margin:auto;width: 600px;">
             <div class="card-body">
-              <h5 class="card-title">Login</h5>
+              <h1 class="h3 mb-3 font-weight-normal">Login</h1>
               <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" class="form-control" id="email" placeholder="Email Address" formControlName="email" #email>
+                <label class="sr-only" for="inputEmail">Email</label>
+                <input type="text" class="form-control" id="inputEmail" placeholder="Email" formControlName="email" #email>
               </div>
               <div class="form-group">
-                <label for="email">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" #password>
+                <label class="sr-only" for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" #password>
               </div>
-              <button type="submit" class="btn btn-primary" (click)="tryLogin(email.value, password.value)">Login</button>
+              <button type="submit" id="btn-login" class="btn btn-lg btn-primary btn-block" (click)="tryLogin(email.value, password.value)">Login</button>
+              <p class="mt-5 mb-3 text-muted">&copy;2018</p>
             </div>
           </div>
           </form>
       </main>
-
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>Desarrollado por Beatriz Gámez, 2018</p>
-        </div>
-      </footer>
   </div>
 </body>

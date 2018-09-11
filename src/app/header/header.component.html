@@ -6,18 +6,15 @@
     <a routerLink=""><img id="logo" src="/src/assets/img/logo-blanco.png"></a>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-
         <button mat-flat-button routerLink="">Home</button>
         <button mat-flat-button routerLink="/rutas">Rutas</button>
         <button mat-flat-button [matMenuTriggerFor]="menu">Usuaria</button>
-        <button mat-flat-button routerLink="/admin">Admin</button>
         <button mat-flat-button (click)="logout()">logOut</button>
         <mat-menu #menu="matMenu">
           <h6 class="dropdown-header">Usuaria</h6>
           <button mat-menu-item routerLink="/profile">Mi Perfil</button>
           <button mat-menu-item routerLink="/misinvitaciones">Mis Invitaciones</button>
         </mat-menu>
-
       </div>
   </div>
 </nav>

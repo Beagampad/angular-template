@@ -56,7 +56,7 @@
     </div>
 
   <div class="form-group">
-      <button id="boton-registro" type="button" (click)="createUsuaria(nombre.value, apellidos.value, fecha.value,tfn.value, intereses.value, email.value, password1.value)" class="btn btn-primary btn-lg btn-acceso" data-target="#exampleModal">Enviar</button>
+      <button id="boton-registro" type="button" (click)="createUsuaria($event.target.files, nombre.value, apellidos.value, fecha.value,tfn.value, intereses.value, email.value, password1.value)" class="btn btn-primary btn-lg btn-acceso" data-target="#exampleModal">Enviar</button>
   </div>
 </form>
 

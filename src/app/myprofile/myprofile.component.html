@@ -1,42 +1,46 @@
 <div class="container mt-5">
-    <div *ngIf='angForm'>
+        <div class="row">
+            <div class="col-md-8">
+                <div *ngIf='angForm'>
+                    <form [formGroup]="angForm" id="formularioModificacion" enctype="multipart/form-data">
+                      <div class="form-group">
+                          <label  class="font-weight-bold" for="name">Nombre</label>
+                          <p>{{usuaria[0].nombre}}</p>
+                      </div>
 
-    <form [formGroup]="angForm" id="formularioModificacion" enctype="multipart/form-data">
-      <div class="form-group">
-          <label  class="font-weight-bold" for="name">Nombre</label>
-          <p>{{usuaria[0].nombre}}</p>
-      </div>
+                    <div class="form-group">
+                          <label  class="font-weight-bold" for="phone">Apellidos</label>
+                          <p>{{usuaria[0].apellidos}}</p>
+                      </div>
 
-    <div class="form-group">
-          <label  class="font-weight-bold" for="phone">Apellidos</label>
-          <p>{{usuaria[0].apellidos}}</p>
-      </div>
+                      <div class="form-group">
+                          <label class="font-weight-bold" for="date">Fecha de nacimiento</label>
+                          <p>{{usuaria[0].fechanacimiento}}</p>
+                      </div>
 
-      <div class="form-group">
-          <label class="font-weight-bold" for="date">Fecha de nacimiento</label>
-          <p>{{usuaria[0].fechanacimiento}}</p>
-      </div>
+                      <div class="form-group">
+                          <label  class="font-weight-bold" for="comment">Intereses</label>
+                          <textarea class="form-control" rows="5" id="intereses" formControlName="intereses" #intereses>{{usuaria[0].intereses}}</textarea>
+                      </div>
 
-      <div class="form-group">
-          <label  class="font-weight-bold" for="comment">Intereses</label>
-          <textarea class="form-control" rows="5" id="intereses" formControlName="intereses" #intereses>{{usuaria[0].intereses}}</textarea>
-      </div>
+                      <div class="form-group">
+                          <label class="font-weight-bold" for="email">Email</label>
+                          <input id="email" type="text" class="form-control" data-validation="required email" value="{{usuaria[0].email}}" formControlName="email" #email placeholder="email">
+                      </div>
 
-      <div class="form-group">
-          <label class="font-weight-bold" for="email">Email</label>
-          <input id="email" type="text" class="form-control" data-validation="required email" value="{{usuaria[0].email}}" formControlName="email" #email placeholder="email">
-      </div>
+                      <div class="form-group">
+                          <button type="submit" class="btn btn-primary btn-lg boton-modificar" (click)="modificar(email.value, intereses.value)">Modificar</button>
+                      </div>
+                  </form>
+              </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <img class="foto-user" src="http://localhost:3000/{{usuaria[0].foto}}">
 
-      <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-lg boton-modificar" (click)="modificar(email.value, intereses.value)">Modificar</button>
-      </div>
-
-  </form>
-</div>
-  <div class="col-md-4">
-    <div class="form-group">
-        <img class="foto-user" src="http://localhost:3000/{{usuaria[0].foto}}">
-
+            </div>
+        </div>
     </div>
 </div>
-</div>
+
+
