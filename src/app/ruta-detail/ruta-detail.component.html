@@ -1,32 +1,32 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <div class="container">
-    <mat-card class="example-card">
-        <a placement="top" ngbPopover="{{usuaria[0].intereses}} {{usuaria[0].fechanacimiento}}" popoverTitle="{{usuaria[0].nombre}} {{usuaria[0].apellidos}}"><img mat-card-avatar src="http://localhost:3000/{{usuaria[0].foto}}"></a>
-      <mat-card-header>
-        <mat-card-title>Origen: {{ruta[0].origen}}</mat-card-title>
-        <mat-card-title>Destino: {{ruta[0].destino}}</mat-card-title>
-        <mat-card-subtitle>Hora: {{ruta[0].hora}}h</mat-card-subtitle>
-        <mat-card-subtitle>Medio: {{ruta[0].medio}}</mat-card-subtitle>
-        <mat-card-subtitle>Comentarios: {{ruta[0].comentarios}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-          <p>
-              <span class="demo-2"> Coordenadas:{{ruta[0].coordenadas}} </span>
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-            <button matTooltip="Se le enviará un correo con tu tfn" (click)="joinme(usuaria[0].email, content)" mat-button>UNIRME AL TRAYECTO</button>
-            <!--<button matTooltip="Info about the action" mat-button>DEJAR COMENTARIO</button>-->
-          </mat-card-actions>
-          <!--<form [formGroup]="angForm" novalidate id="formruta" enctype="multipart/form-data">
-            <mat-form-field class="example-full-width">
-              <textarea matInput placeholder="Deja un comentario" formControlName="disscuss" #disscuss enter=leavecomment(disscuss.value)></textarea>
-            </mat-form-field>
-         </form>-->
-          <agm-map [latitude]="lat1" [longitude]="lng1">
-              <agm-direction [origin]="origin" [destination]="destination"></agm-direction>
-          </agm-map>
-    </mat-card>
+
+      <div class="row">
+          <div class="col-6">
+              <mat-card class="example-card">
+                  <a placement="top" ngbPopover="{{usuaria[0].intereses}} {{usuaria[0].fechanacimiento}}" popoverTitle="{{usuaria[0].nombre}} {{usuaria[0].apellidos}}"><img mat-card-avatar src="http://localhost:3000/{{usuaria[0].foto}}"></a>
+                <mat-card-header>
+                  <mat-card-title>Origen: {{ruta[0].origen}}</mat-card-title>
+                  <mat-card-title>Destino: {{ruta[0].destino}}</mat-card-title>
+                  <mat-card-subtitle>Hora: {{ruta[0].hora}}h</mat-card-subtitle>
+                  <mat-card-subtitle>Medio: {{ruta[0].medio}}</mat-card-subtitle>
+                  <mat-card-subtitle>Comentarios: {{ruta[0].comentarios}}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+          </div>
+          <div class="col-6">
+                <mat-card-content>
+                <agm-map [latitude]="lat1" [longitude]="lng1">
+                    <agm-direction [origin]="origin" [destination]="destination"></agm-direction>
+                </agm-map>
+              </mat-card-content>
+              <mat-card-actions>
+                  <button matTooltip="Se le enviará un correo con tu tfn" (click)="joinme(usuaria[0].email, content)" mat-button>UNIRME AL TRAYECTO</button>
+                </mat-card-actions>
+          </div>
+      </div>
+    
+        
   </div>
 
   <ng-template #content let-modal>

@@ -81,6 +81,7 @@ private handleError<T> (operation = 'operation', result?: T) {
   }
 
   logout() {
+    console.log("logout")
     localStorage.removeItem(TOKEN);
 }
   // Envío de Invitaciones
@@ -124,11 +125,12 @@ private handleError<T> (operation = 'operation', result?: T) {
       map(data => data),
       catchError(this.handleError('checkToken', 'error')));
   }
-  postFile(fileToUpload: File): Observable<boolean> {
+  postFile(fileToUpload: File): Observable<any> {
     const url = 'http://localhost:3000/notalone/register';
     const formData: FormData = new FormData();
-    formData.append('fileKey', fileToUpload, fileToUpload.name);
-    return this.http.post<any>(url, formData, httpOptions )
+    formData.append('foto', fileToUpload, fileToUpload.name);
+    console.log(formData);
+    return this.http.post<any>(url, formData )
     .pipe(
         map(() => true),
       catchError(this.handleError('postFile','error')));

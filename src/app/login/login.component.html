@@ -1,14 +1,34 @@
-<div class="card mt-5" style="margin:auto;width: 600px;">
-  <div class="card-body">
-    <h5 class="card-title">Login</h5>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" class="form-control" id="email" placeholder="Email Address" formControlName="email" #email>
-    </div>
-    <div class="form-group">
-      <label for="email">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" #password>
-    </div>
-    <button type="submit" class="btn btn-primary" (click)="tryLogin(email.value, password.value)">Login</button>
+<body class="dark">
+  <!--video id="video_background" src="src/assets/img/video.mp4" loop autoplay></video>-->
+  <img id="video_background" src="/src/assets/img/portada.jpg" alt="First slide">
+  <div id="transparencia"></div>
+  <div id="contenedor-inicio" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      
+
+      <main role="main" class="">
+        <img id="logo" src="src/assets/img/logo-blanco.png" alt="logo">
+        <form>
+          <div class="card mt-5" style="margin:auto;width: 600px;">
+            <div class="card-body">
+              <h5 class="card-title">Login</h5>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Email Address" formControlName="email" #email>
+              </div>
+              <div class="form-group">
+                <label for="email">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" #password>
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="tryLogin(email.value, password.value)">Login</button>
+            </div>
+          </div>
+          </form>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Desarrollado por Beatriz Gámez, 2018</p>
+        </div>
+      </footer>
   </div>
-</div>
+</body>

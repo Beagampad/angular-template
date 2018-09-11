@@ -13,14 +13,14 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminUpdateComponent } from './admin-update/admin-update.component';
 
 const routes: Routes = [
-  {path: 'rutas', component: RutaComponent},
+  {path: 'rutas', component: RutaComponent,canActivate: [NeedAuthGuard]},
  // {path: '', component: HomeComponent},
   {path: 'detail/:id', component: RutaDetailComponent},
-  {path: 'profile', component: MyprofileComponent},
+  {path: 'profile', component: MyprofileComponent,canActivate: [NeedAuthGuard]},
   {path: 'home', component: HomeLogOutComponent},
   {path: 'misinvitaciones', component: MisinvitacionesComponent},
   {path: 'registro/:tk', component: RegistroComponent},
-  {path: 'admin', component: AdminComponent},
+  {path: 'admin', component: AdminComponent,canActivate: [NeedAuthGuard]},
   {path: 'detailUser/:id', component: AdminUpdateComponent},
 
 

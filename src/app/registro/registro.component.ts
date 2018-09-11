@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 
 
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -27,31 +26,21 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {
 
-    /*this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
-    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-         console.log('ImageUpload:uploaded:', item, status, response);
-         console.log('File uploaded successfully');
-    };*/
 
   }
 
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
+    console.log(files.item(0));
 }
   uploadFileToActivity() {
   this.usersService.postFile(this.fileToUpload)
-  .subscribe(data => {
+  .subscribe(data => { console.log("OK")
     // do something, if upload success
     }, error => {
       console.log(error);
     });
 }
-  /*public fileOverBase(e: any): void {
-    this.hasBaseDropZoneOver = e;
-  }
-  public fileOverAnother(e: any): void {
-    this.hasAnotherDropZoneOver = e;
-  }*/
 
   createForm() {
 
@@ -70,7 +59,7 @@ export class RegistroComponent implements OnInit {
   // Crear Usuaria por form
   createUsuaria(nombre, apellidos, fechanacimiento, tfn, intereses, email, password1) {
 
-    // this.uploader.uploadAll();
+   this.uploadFileToActivity();
 
     const tk = +this.route.snapshot.paramMap.get('tk');
 
