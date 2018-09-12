@@ -78,11 +78,18 @@ export class RutaComponent implements OnInit {
 
       console.log(this.coordenadas);
 
-    this.notaloneService.createRuta(id, origen, destino, fecha, hora, medio, comentarios)
+    /*this.notaloneService.createRuta(id, origen, destino, fecha, hora, medio, comentarios)
       .subscribe(rutas => this.rutas = rutas );
-      
-    modal.close('Close click')
-    this.router.navigateByUrl('/rutas');
+
+    //modal.close('Close click')
+    this.router.navigateByUrl('/rutas');*/
+
+    this.notaloneService.createRuta(id, origen, destino, fecha, hora, medio, comentarios)
+    .subscribe(rutas => {
+
+        this.rutas = rutas;
+        this.router.navigateByUrl('/rutas');
+});
 
   }
   // MODAL CREAR RUTA Y MIS RUTAS
